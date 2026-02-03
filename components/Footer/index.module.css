@@ -1,0 +1,46 @@
+.footer {
+  padding: 2rem 0;
+  margin-top: auto;
+  background: #ffffff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.footerContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 100%;
+  padding: 0 1rem;
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerTitle {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerLink {
+  text-decoration: none;
+  padding: 0.25rem 0;
+  display: block;
+  color: #666;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+
+.footerLink:hover {
+  color: #333;
+  text-decoration: none;
+}

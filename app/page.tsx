@@ -1,65 +1,81 @@
-import Image from "next/image";
-
-export default function Home() {
+import Image from 'next/image'
+import Hero from '@/components/Hero'
+ 
+export default function Page() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="page-content">
+      <Hero />
+      <section className="home-section">
+        <div className="value-prop">
+          <h1>We design AI automations that quietly remove operational pain.</h1>
+        </div>
+        
+        <div className="target-audience">
+          <h2>Who it's for</h2>
+          <div className="audience-grid">
+            <div className="audience-item">Founders</div>
+            <div className="audience-item">Ops teams</div>
+            <div className="audience-item">Marketing</div>
+            <div className="audience-item">Content teams</div>
+            <div className="audience-item">Internal tools</div>
+          </div>
+        </div>
+        
+        <div className="what-we-do">
+          <h2>What we actually do</h2>
+          <p>
+            We build simple automations that handle repetitive tasks so your team can focus on work that matters. 
+            No complex enterprise software, no long implementations — just practical tools that save time immediately.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        
+        <div className="how-it-works">
+          <h2>How it works</h2>
+          <div className="steps">
+            <div className="step">
+              <div className="step-number">1</div>
+              <h3>Discover</h3>
+              <p>We find the repetitive tasks eating up your team's time</p>
+            </div>
+            <div className="step">
+              <div className="step-number">2</div>
+              <h3>Build</h3>
+              <p>We create simple automations that solve the problem</p>
+            </div>
+            <div className="step">
+              <div className="step-number">3</div>
+              <h3>Hand-off</h3>
+              <p>We train your team and ensure everything runs smoothly</p>
+            </div>
+          </div>
         </div>
-      </main>
+        
+        <div className="examples">
+          <h2>Concrete examples</h2>
+          <div className="examples-grid">
+            <div className="example-card">
+              <h3>Automated report generation</h3>
+              <p className="result">→ saved 8 hours/week for marketing team</p>
+            </div>
+            <div className="example-card">
+              <h3>Customer data sync</h3>
+              <p className="result">→ eliminated 15 hours/month of manual entry</p>
+            </div>
+            <div className="example-card">
+              <h3>Content scheduling workflow</h3>
+              <p className="result">→ reduced publishing time by 60%</p>
+            </div>
+          </div>
+        </div>
+        
+        <div className="primary-cta">
+          <h2>Ready to stop wasting time on repetitive tasks?</h2>
+          <div className="cta-buttons">
+            <a href="/contact" className="cta-primary">👉 Describe your problem</a>
+            <a href="/services" className="cta-secondary">View our services</a>
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }

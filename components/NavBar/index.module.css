@@ -1,0 +1,35 @@
+.navbar {
+  padding: 1rem 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  z-index: 1000;
+}
+
+.navContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  max-width: 100%;
+  padding: 0 1rem;
+}
+
+.navLink {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  display: block;
+  color: #333;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.navLink:hover {
+  background-color: #f0f0f0;
+  text-decoration: none;
+}
