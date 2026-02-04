@@ -1,0 +1,990 @@
+<div
+  class="export-wrapper"
+  style="
+    width: 1440px;
+    min-height: 812px;
+    position: relative;
+    font-family: var(--font-family-body);
+    background-color: var(--background);
+  "
+>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&family=Geist:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900&family=PT+Serif:wght@400;700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Shantell+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <html>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=1440, initial-scale=1.0" />
+      <title>Basalt Systems</title>
+      <style>
+        :root {
+          --background: #050505;
+          --foreground: #e5e5e5;
+          --card: #0a0a0a;
+          --card-foreground: #e5e5e5;
+          --popover: #0a0a0a;
+          --popover-foreground: #e5e5e5;
+          --primary: #ff4500;
+          --primary-foreground: #000000;
+          --secondary: #1f1f1f;
+          --secondary-foreground: #ffffff;
+          --muted: #1a1a1a;
+          --muted-foreground: #666666;
+          --accent: #2a2a2a;
+          --accent-foreground: #ff4500;
+          --destructive: #7f1d1d;
+          --destructive-foreground: #ffffff;
+          --border: #333333;
+          --input: #1f1f1f;
+          --ring: #ff4500;
+          --radius-sm: 0px;
+          --radius-md: 0px;
+          --radius-lg: 2px;
+          --radius-xl: 4px;
+          --font-family-body: "Inter", system-ui, -apple-system, sans-serif;
+          --font-family-mono: "IBM Plex Mono", "Courier New", monospace;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        .export-wrapper {
+          margin: 0;
+          background-color: var(--background);
+          color: var(--foreground);
+          font-family: var(--font-family-body);
+          overflow-x: hidden;
+          width: 100%;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+        }
+
+        /* Utility Classes */
+        .mono {
+          font-family: var(--font-family-mono);
+          letter-spacing: -0.02em;
+        }
+
+        .container {
+          max-width: 1360px;
+          margin: 0 auto;
+          padding: 0 40px;
+          width: 100%;
+        }
+
+        .grid-12 {
+          display: grid;
+          grid-template-columns: repeat(12, 1fr);
+          gap: 24px;
+        }
+
+        .border-b {
+          border-bottom: 1px solid var(--border);
+        }
+
+        .border-t {
+          border-top: 1px solid var(--border);
+        }
+
+        .border-r {
+          border-right: 1px solid var(--border);
+        }
+
+        .border-l {
+          border-left: 1px solid var(--border);
+        }
+
+        .text-primary {
+          color: var(--primary);
+        }
+
+        .text-muted {
+          color: var(--muted-foreground);
+        }
+
+        /* Components */
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 12px 24px;
+          background: transparent;
+          border: 1px solid var(--primary);
+          color: var(--primary);
+          font-family: var(--font-family-mono);
+          font-size: 14px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+          transition: all 0.2s;
+        }
+
+        .btn::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: var(--primary);
+          opacity: 0;
+          z-index: -1;
+        }
+
+        .btn-primary {
+          background: var(--primary);
+          color: var(--primary-foreground);
+        }
+
+        .tag {
+          font-family: var(--font-family-mono);
+          font-size: 10px;
+          text-transform: uppercase;
+          color: var(--muted-foreground);
+          border: 1px solid var(--border);
+          padding: 4px 8px;
+          display: inline-block;
+        }
+
+        .scanline {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.1) 50%,
+            rgba(0, 0, 0, 0.1)
+          );
+          background-size: 100% 4px;
+          pointer-events: none;
+          z-index: 9999;
+          opacity: 0.15;
+        }
+      </style>
+
+      <style id="nav-styles">
+        .command-bar {
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: var(--background);
+          z-index: 50;
+          position: sticky;
+          top: 0;
+        }
+        .system-status {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 12px;
+        }
+        .status-light {
+          width: 8px;
+          height: 8px;
+          background-color: var(--primary);
+          border-radius: 50%;
+          box-shadow: 0 0 8px var(--primary);
+        }
+      </style>
+
+      <style id="hero-styles">
+        .hero-section {
+          padding: 120px 0 100px;
+          position: relative;
+        }
+        .hero-title {
+          font-size: 84px;
+          line-height: 0.9;
+          font-weight: 700;
+          letter-spacing: -0.04em;
+          margin: 0 0 32px;
+          text-transform: uppercase;
+        }
+        .hero-sub {
+          font-family: var(--font-family-mono);
+          font-size: 16px;
+          color: var(--muted-foreground);
+          margin-bottom: 48px;
+          display: block;
+        }
+        .terminal-window {
+          background: #000;
+          border: 1px solid var(--border);
+          padding: 24px;
+          font-family: var(--font-family-mono);
+          font-size: 13px;
+          color: #33ff33;
+          height: 100%;
+          min-height: 280px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          position: relative;
+        }
+        .terminal-header {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 24px;
+          background: var(--muted);
+          border-bottom: 1px solid var(--border);
+          display: flex;
+          align-items: center;
+          padding: 0 8px;
+          gap: 6px;
+        }
+        .term-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: var(--muted-foreground);
+        }
+      </style>
+
+      <style id="grid-styles">
+        .section-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          padding-bottom: 24px;
+          border-bottom: 1px solid var(--border);
+          margin-bottom: 48px;
+        }
+        .section-title {
+          font-size: 24px;
+          font-weight: 600;
+          margin: 0;
+          text-transform: uppercase;
+        }
+        .card {
+          background: var(--card);
+          border: 1px solid var(--border);
+          padding: 32px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          min-height: 320px;
+          position: relative;
+        }
+        .card::after {
+          content: "";
+          position: absolute;
+          top: -1px;
+          left: -1px;
+          width: 10px;
+          height: 10px;
+          border-top: 1px solid var(--primary);
+          border-left: 1px solid var(--primary);
+        }
+        .card-icon {
+          margin-bottom: 24px;
+          color: var(--primary);
+        }
+        .card-title {
+          font-size: 20px;
+          font-weight: 600;
+          margin: 0 0 12px;
+          color: var(--foreground);
+        }
+        .card-desc {
+          font-size: 14px;
+          color: var(--muted-foreground);
+          line-height: 1.5;
+        }
+      </style>
+
+      <style id="process-styles">
+        .process-row {
+          display: flex;
+          border-bottom: 1px solid var(--border);
+        }
+        .process-step {
+          flex: 1;
+          padding: 48px 24px;
+          border-right: 1px solid var(--border);
+          position: relative;
+        }
+        .process-step:last-child {
+          border-right: none;
+        }
+        .step-num {
+          font-family: var(--font-family-mono);
+          color: var(--primary);
+          font-size: 14px;
+          margin-bottom: 16px;
+          display: block;
+        }
+        .step-title {
+          font-size: 20px;
+          font-weight: 600;
+          margin: 0 0 12px;
+        }
+      </style>
+    </head>
+    <body>
+      <!-- Scanline Overlay -->
+      <div class="scanline"></div>
+
+      <!-- Command Bar -->
+      <div class="border-b">
+        <div class="container command-bar">
+          <div
+            class="mono"
+            style="font-weight: 700; font-size: 16px; letter-spacing: -0.05em"
+          >
+            BASALT SYSTEMS
+          </div>
+          <div class="system-status mono">
+            <div class="status-light"></div>
+            <span>SYSTEMS: OPERATIONAL</span>
+            <span style="color: var(--muted-foreground); margin-left: 16px"
+              >V.2.0.4</span
+            >
+          </div>
+          <div
+            style="display: flex; gap: 32px; font-size: 13px; font-weight: 500"
+          >
+            <div data-media-type="banani-button" style="cursor: pointer">
+              SOLUTIONS
+            </div>
+            <div data-media-type="banani-button" style="cursor: pointer">
+              PROTOCOL
+            </div>
+            <div data-media-type="banani-button" style="cursor: pointer">
+              LOGIN
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Section -->
+      <div class="container hero-section">
+        <div class="grid-12">
+          <div style="grid-column: span 7; padding-right: 48px">
+            <span class="tag" style="margin-bottom: 24px"
+              >Automated Enterprise Infrastructure</span
+            >
+            <h1 class="hero-title">
+              Architecting<br />
+              <span class="text-muted">Autonomy</span>
+            </h1>
+            <p class="hero-sub mono">
+              // DEPLOY SCALABLE INTELLIGENCE
+              <br />Eliminate operational drag with industrial-grade AI agents.
+            </p>
+            <div style="display: flex; gap: 16px">
+              <button class="btn btn-primary" data-media-type="banani-button">
+                [ INITIALIZE SCAN ]
+              </button>
+              <button
+                class="btn"
+                data-media-type="banani-button"
+                style="
+                  color: var(--foreground);
+                  border-color: var(--muted-foreground);
+                "
+              >
+                VIEW DOCUMENTATION
+              </button>
+            </div>
+          </div>
+          <div style="grid-column: span 5; position: relative">
+            <!-- Abstract decorative visual background behind terminal -->
+            <div
+              style="
+                position: absolute;
+                top: -40px;
+                right: -40px;
+                width: 100%;
+                height: 120%;
+                z-index: -1;
+                opacity: 0.5;
+                filter: grayscale(100%) contrast(120%);
+              "
+            >
+              <img
+                data-aspect-ratio="1:1"
+                data-query="abstract dark basalt rock texture 3d render brutalist geometric shapes"
+                style="width: 100%; height: 100%; object-fit: cover"
+                src="https://storage.googleapis.com/banani-generated-images/generated-images/a7a3679e-e372-4f4a-91f9-6febd3d56b3d.jpg"
+              />
+            </div>
+
+            <div class="terminal-window">
+              <div class="terminal-header">
+                <div class="term-dot"></div>
+                <div class="term-dot"></div>
+                <div class="term-dot"></div>
+              </div>
+              <div style="margin-bottom: 8px; opacity: 0.5">
+                &gt; connection established to node_04
+              </div>
+              <div style="margin-bottom: 8px; opacity: 0.7">
+                &gt; importing neural weights...
+              </div>
+              <div style="margin-bottom: 8px">
+                &gt; analyzing workflow inefficiencies...
+              </div>
+              <div style="margin-bottom: 16px; color: var(--primary)">
+                &gt; 14 bottlenecks detected.
+              </div>
+              <div
+                class="mono"
+                style="
+                  border-top: 1px solid #333;
+                  padding-top: 12px;
+                  display: flex;
+                  justify-content: space-between;
+                  color: #fff;
+                "
+              >
+                <span>STATUS</span>
+                <span>AWAITING INPUT_</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marquee / The Stack -->
+      <div
+        class="border-y"
+        style="
+          border-top: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
+          background: var(--card);
+        "
+      >
+        <div
+          class="container"
+          style="
+            height: 80px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+          "
+        >
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              opacity: 0.4;
+              filter: grayscale(100%);
+            "
+          >
+            <!-- Using text placeholders for logos to ensure clean look, or basic icons -->
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-weight: 700;
+                font-size: 18px;
+              "
+            >
+              <div style="width: 24px; height: 24px; background: #fff"></div>
+              OPENAI
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-weight: 700;
+                font-size: 18px;
+              "
+            >
+              <div
+                style="
+                  width: 24px;
+                  height: 24px;
+                  background: #fff;
+                  border-radius: 50%;
+                "
+              ></div>
+              ANTHROPIC
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-weight: 700;
+                font-size: 18px;
+              "
+            >
+              <div style="width: 24px; height: 24px; background: #fff"></div>
+              N8N
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-weight: 700;
+                font-size: 18px;
+              "
+            >
+              <div
+                style="
+                  width: 24px;
+                  height: 24px;
+                  background: #fff;
+                  border-radius: 50%;
+                "
+              ></div>
+              PINECONE
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-weight: 700;
+                font-size: 18px;
+              "
+            >
+              <div style="width: 24px; height: 24px; background: #fff"></div>
+              VERCEL
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tripwire Grid -->
+      <div class="container" style="padding: 100px 40px">
+        <div class="section-header">
+          <div>
+            <span
+              class="mono text-primary"
+              style="display: block; margin-bottom: 8px"
+              >01 // AUTOMATIONS</span
+            >
+            <h2 class="section-title">Plug-and-Play Tripwires</h2>
+          </div>
+          <div class="mono text-muted" style="font-size: 12px">
+            System Architecture -&gt; Modules
+          </div>
+        </div>
+
+        <div class="grid-12">
+          <div class="card" style="grid-column: span 4">
+            <div>
+              <div class="card-icon">
+                <div
+                  style="
+                    width: 48px;
+                    height: 48px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid var(--border);
+                    background: var(--secondary);
+                  "
+                >
+                  <iconify-icon
+                    icon="lucide:git-pull-request"
+                    style="font-size: 24px; color: var(--primary)"
+                  ></iconify-icon>
+                </div>
+              </div>
+              <h3 class="card-title">Inbound Router</h3>
+              <p class="card-desc">
+                Automatically qualifies leads, enriches data via Clearbit, and
+                routes high-value prospects to Slack instantly.
+              </p>
+            </div>
+            <div
+              class="mono"
+              style="
+                margin-top: 32px;
+                font-size: 12px;
+                color: var(--primary);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+              "
+            >
+              DEPLOY MODULE
+              <iconify-icon
+                icon="lucide:arrow-right"
+                style="font-size: 14px"
+              ></iconify-icon>
+            </div>
+          </div>
+
+          <div class="card" style="grid-column: span 4">
+            <div>
+              <div class="card-icon">
+                <div
+                  style="
+                    width: 48px;
+                    height: 48px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid var(--border);
+                    background: var(--secondary);
+                  "
+                >
+                  <iconify-icon
+                    icon="lucide:database"
+                    style="font-size: 24px; color: var(--primary)"
+                  ></iconify-icon>
+                </div>
+              </div>
+              <h3 class="card-title">Knowledge Sync</h3>
+              <p class="card-desc">
+                Vectorizes your Notion and Google Drive into a queryable brain
+                for your internal LLM agents.
+              </p>
+            </div>
+            <div
+              class="mono"
+              style="
+                margin-top: 32px;
+                font-size: 12px;
+                color: var(--primary);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+              "
+            >
+              DEPLOY MODULE
+              <iconify-icon
+                icon="lucide:arrow-right"
+                style="font-size: 14px"
+              ></iconify-icon>
+            </div>
+          </div>
+
+          <div class="card" style="grid-column: span 4">
+            <div>
+              <div class="card-icon">
+                <div
+                  style="
+                    width: 48px;
+                    height: 48px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid var(--border);
+                    background: var(--secondary);
+                  "
+                >
+                  <iconify-icon
+                    icon="lucide:mail"
+                    style="font-size: 24px; color: var(--primary)"
+                  ></iconify-icon>
+                </div>
+              </div>
+              <h3 class="card-title">Outreach Sentinel</h3>
+              <p class="card-desc">
+                Autonomous follow-up sequences that adapt tone and timing based
+                on recipient engagement signals.
+              </p>
+            </div>
+            <div
+              class="mono"
+              style="
+                margin-top: 32px;
+                font-size: 12px;
+                color: var(--primary);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+              "
+            >
+              DEPLOY MODULE
+              <iconify-icon
+                icon="lucide:arrow-right"
+                style="font-size: 14px"
+              ></iconify-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Process Block -->
+      <div
+        style="
+          background: var(--card);
+          border-top: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
+        "
+      >
+        <div class="container">
+          <div style="padding: 80px 40px 40px">
+            <span
+              class="mono text-primary"
+              style="display: block; margin-bottom: 8px"
+              >02 // METHODOLOGY</span
+            >
+            <h2 class="section-title" style="font-size: 32px">
+              The Basalt Protocol
+            </h2>
+          </div>
+          <div class="process-row">
+            <div class="process-step">
+              <span class="step-num">PHASE_01</span>
+              <h3 class="step-title">Forensic Audit</h3>
+              <p class="text-muted" style="line-height: 1.6; font-size: 14px">
+                We deconstruct your current operations to identify friction
+                points and latency.
+              </p>
+            </div>
+            <div class="process-step">
+              <span class="step-num">PHASE_02</span>
+              <h3 class="step-title">System Architecture</h3>
+              <p class="text-muted" style="line-height: 1.6; font-size: 14px">
+                Designing the autonomous nervous system of your company using
+                fault-tolerant models.
+              </p>
+            </div>
+            <div class="process-step">
+              <span class="step-num">PHASE_03</span>
+              <h3 class="step-title">Deployment &amp; Stabilization</h3>
+              <p class="text-muted" style="line-height: 1.6; font-size: 14px">
+                Live implementation with 99.9% uptime guarantee and real-time
+                monitoring dashboards.
+              </p>
+            </div>
+            <div
+              class="process-step"
+              style="
+                background: var(--secondary);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+              "
+            >
+              <div
+                style="
+                  margin-bottom: 16px;
+                  color: var(--primary);
+                  font-size: 32px;
+                  font-weight: 300;
+                "
+              >
+                +35%
+              </div>
+              <div
+                class="mono"
+                style="font-size: 12px; color: var(--foreground)"
+              >
+                AVG. EFFICIENCY GAIN
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="container" style="padding: 120px 40px; text-align: center">
+        <h2
+          style="
+            font-size: 48px;
+            text-transform: uppercase;
+            margin: 0 0 24px;
+            letter-spacing: -0.02em;
+          "
+        >
+          Ready to go offline?
+        </h2>
+        <p
+          class="text-muted"
+          style="font-size: 18px; margin: 0 auto 48px; max-width: 600px"
+        >
+          Let the systems run the business. You focus on the vision.
+        </p>
+        <button
+          class="btn btn-primary"
+          data-media-type="banani-button"
+          style="padding: 16px 48px; font-size: 16px"
+        >
+          START SYSTEM AUDIT
+        </button>
+      </div>
+
+      <!-- Footer -->
+      <footer class="border-t" style="background: #000; padding: 80px 0">
+        <div class="container">
+          <div class="grid-12">
+            <div style="grid-column: span 4">
+              <div
+                class="mono"
+                style="
+                  font-weight: 700;
+                  font-size: 20px;
+                  letter-spacing: -0.05em;
+                  margin-bottom: 24px;
+                  color: #fff;
+                "
+              >
+                BASALT SYSTEMS
+              </div>
+              <div
+                class="mono text-muted"
+                style="font-size: 12px; line-height: 1.6"
+              >
+                COPYRIGHT © 198X-202X<br />
+                ALL RIGHTS RESERVED.<br />
+                SAN FRANCISCO, CA // NEO-TOKYO
+              </div>
+            </div>
+            <div style="grid-column: span 2"></div>
+            <div style="grid-column: span 2">
+              <div
+                class="mono text-primary"
+                style="font-size: 12px; margin-bottom: 16px"
+              >
+                PRODUCTS
+              </div>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+                  font-size: 14px;
+                  color: var(--muted-foreground);
+                "
+              >
+                <span data-media-type="banani-button" style="cursor: pointer"
+                  >Tripwire</span
+                >
+                <span data-media-type="banani-button" style="cursor: pointer"
+                  >Foundry</span
+                >
+                <span data-media-type="banani-button" style="cursor: pointer"
+                  >Nexus</span
+                >
+              </div>
+            </div>
+            <div style="grid-column: span 2">
+              <div
+                class="mono text-primary"
+                style="font-size: 12px; margin-bottom: 16px"
+              >
+                COMPANY
+              </div>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+                  font-size: 14px;
+                  color: var(--muted-foreground);
+                "
+              >
+                <span data-media-type="banani-button" style="cursor: pointer"
+                  >Manifesto</span
+                >
+                <span data-media-type="banani-button" style="cursor: pointer"
+                  >Careers</span
+                >
+                <span data-media-type="banani-button" style="cursor: pointer"
+                  >Contact</span
+                >
+              </div>
+            </div>
+            <div style="grid-column: span 2">
+              <div
+                class="mono text-primary"
+                style="font-size: 12px; margin-bottom: 16px"
+              >
+                NETWORK
+              </div>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+                  font-size: 14px;
+                  color: var(--muted-foreground);
+                "
+              >
+                <span data-media-type="banani-button" style="cursor: pointer"
+                  >Twitter / X</span
+                >
+                <span data-media-type="banani-button" style="cursor: pointer"
+                  >GitHub</span
+                >
+                <span data-media-type="banani-button" style="cursor: pointer"
+                  >Discord</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="border-t"
+            style="
+              margin-top: 60px;
+              padding-top: 24px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div class="mono text-muted" style="font-size: 10px">
+              ID: 884-291-002-X
+            </div>
+            <div class="mono text-muted" style="font-size: 10px">
+              STATUS: STABLE
+            </div>
+          </div>
+        </div>
+      </footer>
+    </body>
+  </html>
+  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+  <style>
+    :root {
+      --background: #050505;
+      --foreground: #e6e6e6;
+      --border: #00000014;
+      --input: #111111;
+      --primary: #ff6a00;
+      --primary-foreground: #050505;
+      --secondary: #2a2a2a;
+      --secondary-foreground: #dadada;
+      --muted: #0f0f0f;
+      --muted-foreground: #8a8a8a;
+      --success: #1b8f4a;
+      --success-foreground: #eaf8ee;
+      --accent: #00ff9c;
+      --accent-foreground: #050505;
+      --destructive: #d64545;
+      --destructive-foreground: #ffffff;
+      --warning: #ffb84d;
+      --warning-foreground: #050505;
+      --card: #0c0c0c;
+      --card-foreground: #e6e6e6;
+      --sidebar: #131313;
+      --sidebar-foreground: #cfcfcf;
+      --sidebar-primary: #1f1f1f;
+      --sidebar-primary-foreground: #ff6a00;
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 8px;
+      --radius-xl: 12px;
+      --font-family-body: Inter;
+    }
+  </style>
+</div>
