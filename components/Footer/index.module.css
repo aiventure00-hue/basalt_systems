@@ -88,3 +88,183 @@
     font-family: var(--font-family-mono);
     letter-spacing: -0.02em;
 }
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+    .footer {
+        padding: 60px 0;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    .grid12 {
+        gap: 20px;
+    }
+    
+    .brandColumn {
+        grid-column: span 6;
+    }
+    
+    .spacerColumn {
+        display: none;
+    }
+    
+    .linkColumn {
+        grid-column: span 3;
+    }
+    
+    .brandName {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    
+    .copyright {
+        font-size: 11px;
+    }
+    
+    .columnHeader {
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+    
+    .linkGroup {
+        font-size: 13px;
+        gap: 10px;
+    }
+    
+    .bottomBar {
+        margin-top: 40px;
+        padding-top: 20px;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+    
+    .statusId,
+    .statusText {
+        font-size: 9px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 0;
+    }
+    
+    .container {
+        padding: 0 16px;
+        max-width: 100%;
+    }
+    
+    .grid12 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .brandColumn {
+        grid-column: span 2;
+        text-align: center;
+    }
+    
+    .linkColumn {
+        grid-column: span 1;
+    }
+    
+    .brandName {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+    
+    .copyright {
+        font-size: 10px;
+    }
+    
+    .columnHeader {
+        font-size: 10px;
+        margin-bottom: 8px;
+    }
+    
+    .linkGroup {
+        font-size: 12px;
+        gap: 8px;
+    }
+    
+    .bottomBar {
+        margin-top: 32px;
+        padding-top: 16px;
+        gap: 8px;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .statusId,
+    .statusText {
+        font-size: 8px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .footer {
+        padding: 32px 0;
+    }
+    
+    .container {
+        padding: 0 12px;
+        max-width: 100%;
+    }
+    
+    .grid12 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    
+    .brandColumn {
+        grid-column: span 2;
+        text-align: center;
+    }
+    
+    .linkColumn {
+        grid-column: span 1;
+    }
+    
+    .brandName {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+    
+    .copyright {
+        font-size: 9px;
+    }
+    
+    .columnHeader {
+        font-size: 9px;
+        margin-bottom: 6px;
+    }
+    
+    .linkGroup {
+        font-size: 11px;
+        gap: 6px;
+    }
+    
+    .bottomBar {
+        margin-top: 24px;
+        padding-top: 12px;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .statusId,
+    .statusText {
+        font-size: 7px;
+    }
+}

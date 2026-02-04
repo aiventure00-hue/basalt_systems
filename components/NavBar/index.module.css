@@ -1,5 +1,11 @@
 .navbar {
     border-bottom: 1px solid var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: var(--background);
 }
 
 .container {
@@ -7,10 +13,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--background);
-    z-index: 50;
-    position: sticky;
-    top: 0;
     max-width: 1360px;
     margin: 0 auto;
     padding: 0 40px;
@@ -54,4 +56,154 @@
 
 .navLink {
     cursor: pointer;
+}
+
+.menuToggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--foreground);
+}
+
+.menuToggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--foreground);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.mobileMenu {
+    display: none;
+    position: fixed;
+    top: 48px;
+    left: 0;
+    right: 0;
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+    z-index: 40;
+    height: calc(100vh - 48px);
+    overflow-y: auto;
+}
+
+.mobileMenuOpen {
+    display: block;
+}
+
+.mobileNavLinks {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    gap: 16px;
+}
+
+.mobileNavLink {
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--foreground);
+    text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .navLinks {
+        gap: 20px;
+        font-size: 12px;
+    }
+    
+    .systemStatus {
+        font-size: 11px;
+    }
+    
+    .mono {
+        font-size: 14px;
+    }
+    
+    .mobileMenu {
+        top: 48px;
+        left: 0;
+        width: 50%;
+        right: auto;
+        border-right: 1px solid var(--border);
+        border-bottom: none;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .mobileMenuOpen {
+        display: block;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .navLinks {
+        display: none;
+    }
+    
+    .menuToggle {
+        display: block;
+    }
+    
+    .systemStatus {
+        display: none;
+    }
+    
+    .mono {
+        font-size: 14px;
+    }
+    
+    .mobileMenu {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        border-right: none;
+        border-bottom: none;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .mobileMenuOpen {
+        display: block;
+        transform: translateX(0);
+    }
+    
+    .mobileNavLinks {
+        padding: 128px 20px 20px;
+        gap: 24px;
+    }
+    
+    .mobileNavLink {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+    }
+    
+    .mono {
+        font-size: 12px;
+    }
+    
+    .mobileNavLinks {
+        padding: 64px 20px 20px;
+    }
+    
+    .mobileNavLink {
+        font-size: 14px;
+    }
 }

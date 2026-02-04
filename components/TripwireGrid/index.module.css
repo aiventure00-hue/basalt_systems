@@ -104,3 +104,141 @@
 .arrowIcon {
     font-size: 14px;
 }
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+    .container {
+        padding: 80px 20px;
+    }
+    
+    .sectionHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .sectionTitle {
+        font-size: 20px;
+    }
+    
+    .grid12 {
+        gap: 20px;
+    }
+    
+    .card {
+        grid-column: span 6;
+        padding: 24px;
+        min-height: 280px;
+    }
+    
+    .cardTitle {
+        font-size: 18px;
+    }
+    
+    .cardDesc {
+        font-size: 13px;
+    }
+    
+    .iconContainer {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .icon {
+        font-size: 20px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 60px 16px;
+    }
+    
+    .sectionHeader {
+        padding-bottom: 16px;
+        margin-bottom: 32px;
+    }
+    
+    .sectionTitle {
+        font-size: 18px;
+    }
+    
+    .grid12 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .card {
+        grid-column: span 1;
+        padding: 20px;
+        min-height: 240px;
+    }
+    
+    .cardTitle {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    
+    .cardDesc {
+        font-size: 12px;
+    }
+    
+    .iconContainer {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .icon {
+        font-size: 18px;
+    }
+    
+    .deployModule {
+        margin-top: 24px;
+        font-size: 11px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 40px 12px;
+    }
+    
+    .sectionHeader {
+        margin-bottom: 24px;
+    }
+    
+    .sectionTitle {
+        font-size: 16px;
+    }
+    
+    .card {
+        padding: 16px;
+        min-height: 200px;
+    }
+    
+    .cardTitle {
+        font-size: 14px;
+    }
+    
+    .cardDesc {
+        font-size: 11px;
+    }
+    
+    .iconContainer {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .icon {
+        font-size: 16px;
+    }
+    
+    .deployModule {
+        margin-top: 20px;
+        font-size: 10px;
+    }
+}
