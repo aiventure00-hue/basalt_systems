@@ -1,0 +1,52 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-family: var(--font-family-mono);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary);
+    opacity: 0;
+    z-index: -1;
+}
+
+.primary {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.primary:hover {
+    opacity: 0.9;
+}
+
+.secondary {
+    color: var(--foreground);
+    border-color: var(--muted-foreground);
+}
+
+.secondary:hover {
+    opacity: 0.9;
+}
+
+.secondary:hover::before {
+    opacity: 1;
+}

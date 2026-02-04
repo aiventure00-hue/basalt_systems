@@ -1,0 +1,106 @@
+.container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 100px 40px;
+    width: 100%;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+}
+
+.mono {
+}
+
+.textPrimary {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary);
+    font-family: var(--font-family-mono);
+    letter-spacing: -0.02em;
+}
+
+.sectionTitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.textMuted {
+    font-size: 12px;
+    color: var(--muted-foreground);
+    font-family: var(--font-family-mono);
+    letter-spacing: -0.02em;
+}
+
+.grid12 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+}
+
+.card {
+    grid-column: span 4;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px;
+    position: relative;
+}
+
+.cardIcon {
+    margin-bottom: 24px;
+    color: var(--primary);
+}
+
+.iconContainer {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    background: var(--secondary);
+}
+
+.icon {
+    font-size: 24px;
+    color: var(--primary);
+}
+
+.cardTitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    color: var(--foreground);
+}
+
+.cardDesc {
+    font-size: 14px;
+    color: var(--muted-foreground);
+    line-height: 1.5;
+}
+
+.deployModule {
+    margin-top: 32px;
+    font-size: 12px;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-family-mono);
+    letter-spacing: -0.02em;
+}
+
+.arrowIcon {
+    font-size: 14px;
+}

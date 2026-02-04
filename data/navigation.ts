@@ -1,6 +1,3 @@
-// Temporary navigation data structure
-// TODO: Replace with actual data from CMS or API
-
 export interface NavLink {
   href: string;
   label: string;
@@ -25,5 +22,10 @@ export const footerLinks = {
   secondary: [
     { href: '/privacy-policy', label: 'privacy policy' },
     { href: '/terms-of-use', label: 'terms of use' },
+  ],
+  social: [
+    { href: 'https://twitter.com', label: 'Twitter / X' },
+    { href: 'https://github.com', label: 'GitHub' },
+    { href: 'https://discord.com', label: 'Discord' },
   ],
 };

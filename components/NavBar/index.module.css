@@ -1,35 +1,57 @@
 .navbar {
-  padding: 1rem 0;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 1200px;
-  z-index: 1000;
+    border-bottom: 1px solid var(--border);
 }
 
-.navContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 1rem;
-  max-width: 100%;
-  padding: 0 1rem;
+.container {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--background);
+    z-index: 50;
+    position: sticky;
+    top: 0;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+
+.mono {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.05em;
+    font-family: var(--font-family-mono);
+    letter-spacing: -0.02em;
+}
+
+.systemStatus {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.statusLight {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--primary);
+}
+
+.version {
+    color: var(--muted-foreground);
+    margin-left: 16px;
+}
+
+.navLinks {
+    display: flex;
+    gap: 32px;
+    font-size: 13px;
+    font-weight: 500;
 }
 
 .navLink {
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  text-align: center;
-  display: block;
-  color: #333;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-}
-
-.navLink:hover {
-  background-color: #f0f0f0;
-  text-decoration: none;
+    cursor: pointer;
 }

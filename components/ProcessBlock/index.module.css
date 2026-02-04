@@ -1,0 +1,87 @@
+.container {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.innerContainer {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+
+.header {
+    padding: 80px 40px 40px;
+}
+
+.textPrimary {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary);
+    font-family: var(--font-family-mono);
+    letter-spacing: -0.02em;
+}
+
+.sectionTitle {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.processRow {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+}
+
+.processStep {
+    flex: 1;
+    padding: 48px 24px;
+    border-right: 1px solid var(--border);
+    position: relative;
+}
+
+.stepNum {
+    font-family: var(--font-family-mono);
+    color: var(--primary);
+    font-size: 14px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.stepTitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 12px;
+}
+
+.textMuted {
+    line-height: 1.6;
+    font-size: 14px;
+    color: var(--muted-foreground);
+}
+
+.averageEfficiency {
+    background: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    border-right: none;
+}
+
+.efficiencyGain {
+    margin-bottom: 16px;
+    color: var(--primary);
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.efficiencyLabel {
+    font-size: 12px;
+    color: var(--foreground);
+    font-family: var(--font-family-mono);
+    letter-spacing: -0.02em;
+}
