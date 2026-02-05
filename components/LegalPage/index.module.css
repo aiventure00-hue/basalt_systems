@@ -92,7 +92,6 @@
 .section {
     background: var(--bg-chassis);
     border: 1px solid var(--border-dim);
-    border-radius: 4px;
     overflow: hidden;
 }
 
