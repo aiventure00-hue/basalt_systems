@@ -1,47 +1,28 @@
 import type { Metadata } from "next"
+import ContentHeader from "@/components/ContentHeader"
+import PersonnelSection from "@/components/PersonnelSection"
+import ExperienceStats from "@/components/ExperienceStats"
+import ValuesGrid from "@/components/ValuesGrid"
+import Timeline from "@/components/Timeline"
 
 export const metadata: Metadata = {
-  title: "About | BASALT SYSTEMS"
+    title: "About | BASALT SYSTEMS"
 }
 
 const AboutPage = () => {
-  return (
-    <div className="page-content">
-      <section className="about-section">
-        <div className="about-content">
-          <h1>About Us</h1>
-          
-          <div className="philosophy">
-            <h2>Our Philosophy</h2>
-            <p>
-              We build painkillers, not features. Clarity trumps hype every time. 
-              Our tools solve real problems that actually matter in production environments.
-            </p>
-            <p>
-              If it doesn't save time, reduce complexity, or eliminate pain points, we don't build it.
-            </p>
-          </div>
-          
-          <div className="background">
-            <h2>Who We Are</h2>
-            <p>
-              Senior frontend & automation engineers with real production experience. 
-              We've built and scaled systems that handle millions of users, 
-              and we know what actually works versus what just looks good on paper.
-            </p>
-          </div>
-          
-          <div className="role">
-            <h2>Founded by Engineers</h2>
-            <p>
-              We're not consultants selling slideshows. We're practitioners who ship code, 
-              automate processes, and solve problems that keep businesses running smoothly.
-            </p>
-          </div>
+    return (
+        <div>
+            <ContentHeader 
+                sectionTitle="/// CORE_DIRECTIVE"
+                title="Built On<br/>Hard Logic."
+                subtitle="Basalt Systems was forged to replace fragile workflows with industrial-grade autonomy. We don't write scripts; we architect infrastructure."
+            />
+            <PersonnelSection />
+            <ExperienceStats />
+            <ValuesGrid />
+            <Timeline />
         </div>
-      </section>
-    </div>
-  )
+    )
 }
 
 export default AboutPage

@@ -1,0 +1,134 @@
+.productCard {
+    background: var(--bg-chassis);
+    border: 1px solid var(--border-dim);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.productCard:hover {
+    background-color: #1f1f1f;
+}
+
+.productCard:hover .protocolTag {
+    color: var(--accent-hazard);
+}
+
+@media (max-width: 768px) {
+    .productCard {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .productCard {
+        padding: 20px;
+    }
+}
+
+.cardHeader {
+    margin-bottom: 24px;
+}
+
+.protocolTag {
+    color: var(--accent-steel);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    transition: color 0.2s;
+}
+
+.title {
+    color: var(--text-primary);
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 18px;
+    }
+}
+
+.cardContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.outcome,
+.audience,
+.pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label {
+    color: var(--text-muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.outcome p,
+.audience p {
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .outcome p,
+    .audience p {
+        font-size: 13px;
+    }
+}
+
+.price {
+    color: var(--accent-phosphor);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+@media (max-width: 480px) {
+    .price {
+        font-size: 16px;
+    }
+}
+
+.ctaButton {
+    background: transparent;
+    color: var(--accent-hazard);
+    border: none;
+    padding: 12px 0;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    border-top: 1px solid var(--border-dim);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ctaButton:hover {
+    color: #ff7733;
+}
+
+.ctaButton:active {
+    color: #ff5533;
+}

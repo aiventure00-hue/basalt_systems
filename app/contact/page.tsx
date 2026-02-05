@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ContentHeader from "@/components/ContentHeader";
 import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
@@ -7,14 +8,13 @@ export const metadata: Metadata = {
 
 const ContactPage = () => {
   return (
-    <div className="page-content">
-      <section className="contact-section">
-        <div className="contact-header">
-          <h1>Get in Touch</h1>
-          <p>Let us know what problem you're trying to solve.</p>
-        </div>
-        <ContactForm />
-      </section>
+    <div>
+      <ContentHeader 
+        sectionTitle="/// COMMUNICATION_PROTOCOL"
+        title="Initiate<br/>Contact"
+        subtitle="Transmit your requirements through our secure channel. We analyze and respond within 48 hours."
+      />
+      <ContactForm />
     </div>
   )
 }
