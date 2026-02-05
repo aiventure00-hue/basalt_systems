@@ -1,3 +1,9 @@
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "About | BASALT SYSTEMS"
+}
+
 const AboutPage = () => {
   return (
     <div className="page-content">

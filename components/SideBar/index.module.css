@@ -1,0 +1,163 @@
+.sidebar {
+    background: var(--bg-obsidian);
+    border-right: 1px solid var(--border-dim);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 100;
+}
+
+.sidebarHeader {
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-dim);
+}
+
+.sidebarHeader :global(.mono) {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    font-family: var(--font-mono);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    background: var(--text-primary);
+    mask: url("/lucide_box.svg") no-repeat center / contain;
+    -webkit-mask: url("/lucide_box.svg") no-repeat center / contain;
+}
+
+.col {
+    display: block;
+    unicode-bidi: isolate;
+    gap: 8px;
+}
+
+.navTitle {
+    font-size: 10px;
+    color: var(--border-bright);
+    margin-bottom: 8px;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s;
+    cursor: pointer;
+    font-family: var(--font-mono);
+}
+
+.navItem.active {
+    color: var(--accent-hazard);
+    border-bottom-color: var(--accent-hazard);
+}
+
+.navItem.active::before {
+    content: ">";
+    margin-right: 8px;
+}
+
+.techSpecs {
+    margin-top: auto;
+    border: 1px solid var(--border-dim);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 16px;
+    font-size: 12px;
+}
+
+.techSpecsTitle {
+    color: var(--accent-hazard);
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border-dim);
+    padding-bottom: 8px;
+}
+
+.specRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+}
+
+.specVal {
+    color: var(--accent-phosphor);
+}
+
+.techSpecs > div:last-child {
+    margin-top: 16px;
+    font-size: 10px;
+    color: #555;
+}
+
+.tech-specs {
+}
+
+.spec-row {
+}
+
+.spec-val {
+}
+
+.sidebar-header .mono {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+.sidebar-header .mono > div {
+    width: 24px;
+    height: 24px;
+    background: var(--text-primary);
+    mask: url("https://api.iconify.design/lucide:box.svg") no-repeat center / contain;
+    -webkit-mask: url("https://api.iconify.design/lucide:box.svg") no-repeat center / contain;
+}
+
+.col {
+    gap: 8px;
+}
+
+.col .mono {
+    font-size: 10px;
+    color: var(--border-bright);
+    margin-bottom: 8px;
+}
+
+.nav-item {
+}
+
+.tech-specs {
+}
+
+.tech-specs > div:first-child {
+    color: var(--accent-hazard);
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border-dim);
+    padding-bottom: 8px;
+}
+
+.spec-row {
+}
+
+.spec-val {
+}
+
+.tech-specs > div:last-child {
+    margin-top: 16px;
+    font-size: 10px;
+    color: #555;
+}

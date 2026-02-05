@@ -3,7 +3,11 @@
 :root {
     --background: #050505;
     --foreground: #e6e6e6;
+    --text-primary: #e0e0e0;
+    --text-muted: #888888;
     --border: #00000014;
+    --border-dim: #333333;
+    --border-bright: #555555;
     --input: #111111;
     --primary: #ff6a00;
     --primary-foreground: #050505;
@@ -15,6 +19,8 @@
     --success-foreground: #eaf8ee;
     --accent: #00ff9c;
     --accent-foreground: #050505;
+    --accent-hazard: #ff5500;
+    --accent-phosphor: #00ff41;
     --destructive: #d64545;
     --destructive-foreground: #ffffff;
     --warning: #ffb84d;
@@ -31,6 +37,17 @@
     --radius-xl: 12px;
     --font-family-body: "Inter", system-ui, -apple-system, sans-serif;
     --font-family-mono: "IBM Plex Mono", "Courier New", monospace;
+    --font-mono: "IBM Plex Mono", monospace;
+    --font-display: "Archivo Black", sans-serif;
+    --bg-obsidian: #050505;
+    --bg-chassis: #121212;
+    --bg-panel: #1a1a1a;
+}
+
+.sidebar-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
 }
 
 * {
@@ -46,27 +63,41 @@ body {
     width: 100vw;
     background-color: var(--background);
     color: var(--foreground);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .document-layout {
-    margin: 0;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    font-family: var(--font-family-body);
-    background-color: var(--background);
-    color: var(--foreground);
+    min-height: 100vh;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     padding-top: 48px;
 }
 
+.document-layout.navbar-layout .document-main {
+    margin-left: 0;
+}
+
+.document-layout.sidebar-layout .document-main {
+    margin-left: 280px;
+}
+
 @media (min-width: 1440px) {
     .document-layout {
         width: 1440px;
         margin: 0 auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .document-layout.sidebar-layout .document-main {
+        margin-left: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .document-layout.sidebar-layout .document-main {
+        margin-left: 0;
     }
 }
 

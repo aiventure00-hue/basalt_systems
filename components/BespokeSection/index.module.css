@@ -1,0 +1,68 @@
+.bespokeSection {
+    background-color: #080808;
+    padding: 80px 48px;
+    border-bottom: 1px solid var(--border-dim);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.sectionTitle {
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+}
+
+.displayFont {
+    font-family: var(--font-display);
+    font-size: 40px;
+    margin: 0 0 24px 0;
+    color: #fff;
+    font-weight: 700;
+}
+
+.description {
+    color: var(--text-muted);
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 480px;
+}
+
+.consultationButton {
+    background: var(--text-primary);
+    color: #000;
+    border: none;
+    padding: 16px 32px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+}
+
+.diagramContainer {
+    position: relative;
+    border: 1px solid var(--border-dim);
+    padding: 4px;
+}
+
+.diagramLabel {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #080808;
+    padding: 0 8px;
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.diagramImage {
+    width: 100%;
+    display: block;
+    filter: grayscale(100%) invert(1);
+    opacity: 0.9;
+}

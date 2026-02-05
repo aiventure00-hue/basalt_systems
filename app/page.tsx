@@ -5,11 +5,8 @@ import TripwireGrid from '@/components/TripwireGrid'
 import ProcessBlock from '@/components/ProcessBlock'
 import CTASection from '@/components/CTASection'
  
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "Home",
-    description: "Architecting Autonomy - Deploy scalable intelligence with industrial-grade AI agents"
-  }
+export const metadata: Metadata = {
+  title: "Home | BASALT SYSTEMS"
 }
 
 export default function Page() {

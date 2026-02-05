@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | BASALT SYSTEMS"
+}
+
 const PrivacyPolicyPage = () => {
   return (
     <div className="page-content">

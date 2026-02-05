@@ -1,0 +1,25 @@
+.catalogHeader {
+    padding: 24px 48px;
+    border-bottom: 1px solid var(--border-dim);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.catalogHeader span:first-child {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.catalogHeader span:last-child {
+    color: var(--accent-hazard);
+    font-size: 12px;
+}
+
+.catalogGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background-color: var(--border-dim);
+    border-bottom: 1px solid var(--border-dim);
+}

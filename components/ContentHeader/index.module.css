@@ -1,0 +1,24 @@
+.contentHeader {
+    padding: 48px;
+    border-bottom: 1px solid var(--border-dim);
+    background: var(--bg-obsidian);
+}
+
+.sectionTitle {
+    font-size: 14px;
+    color: var(--accent-hazard);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+}
+
+.displayFont {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 48px;
+    margin: 0;
+    line-height: 1;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}

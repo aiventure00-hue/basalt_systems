@@ -1,0 +1,727 @@
+<html><head></head><body><div class="export-wrapper" style="
+        width: 1440px;
+        min-height: 812px;
+        position: relative;
+        font-family: var(--font-family-body);
+        background-color: var(--background);
+    ">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&amp;family=Geist:wght@100;200;300;400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&amp;family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&amp;family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;family=Nunito:wght@200;300;400;500;600;700;800;900&amp;family=PT+Serif:wght@400;700&amp;family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&amp;family=Roboto:wght@100;300;400;500;700;900&amp;family=Shantell+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    
+        
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Basalt Systems // Capabilities</title>
+            <style id="basalt-theme">
+                /* Core Theme Variables */
+                :root {
+                    --bg-obsidian: #050505;
+                    --bg-chassis: #121212;
+                    --bg-panel: #1a1a1a;
+                    --border-dim: #333333;
+                    --border-bright: #555555;
+                    --accent-hazard: #ff5500;
+                    --accent-phosphor: #00ff41;
+                    --accent-blueprint: #0055ff;
+                    --text-primary: #e0e0e0;
+                    --text-muted: #888888;
+                    --font-body: "Inter", system-ui, sans-serif;
+                    --font-mono: "IBM Plex Mono", monospace;
+                    --font-display: "Archivo Black", sans-serif;
+                }
+
+                * {
+                    box-sizing: border-box;
+                }
+
+                .export-wrapper {
+                    margin: 0;
+                    padding: 0;
+                    font-family: var(--font-body);
+                    background-color: var(--bg-obsidian);
+                    color: var(--text-primary);
+                    min-height: 100vh;
+                    display: flex;
+                    flex-direction: column;
+                    overflow-x: hidden;
+                }
+
+                /* Utility Classes */
+                .mono {
+                    font-family: var(--font-mono);
+                }
+
+                .display-font {
+                    font-family: var(--font-display);
+                }
+
+                .flex {
+                    display: flex;
+                }
+
+                .col {
+                    flex-direction: column;
+                }
+
+                /* Scanline Overlay */
+                .scanlines {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(
+                        to bottom,
+                        rgba(255, 255, 255, 0),
+                        rgba(255, 255, 255, 0) 50%,
+                        rgba(0, 0, 0, 0.1) 50%,
+                        rgba(0, 0, 0, 0.1)
+                    );
+                    background-size: 100% 4px;
+                    pointer-events: none;
+                    z-index: 9999;
+                    opacity: 0.4;
+                }
+
+                /* Layout */
+                .layout-grid {
+                    display: grid;
+                    grid-template-columns: 280px 1fr;
+                    min-height: 100vh;
+                }
+
+                /* Sidebar Navigation Console */
+                .sidebar {
+                    background: var(--bg-obsidian);
+                    border-right: 1px solid var(--border-dim);
+                    padding: 24px;
+                    display: flex;
+                    flex-direction: column;
+                    position: sticky;
+                    top: 0;
+                    height: 100vh;
+                    z-index: 100;
+                }
+
+                .sidebar-header {
+                    margin-bottom: 48px;
+                    padding-bottom: 24px;
+                    border-bottom: 1px solid var(--border-dim);
+                }
+
+                .nav-item {
+                    display: flex;
+                    align-items: center;
+                    padding: 12px 0;
+                    color: var(--text-muted);
+                    text-decoration: none;
+                    font-size: 14px;
+                    border-bottom: 1px solid transparent;
+                    transition: color 0.2s;
+                    cursor: pointer;
+                }
+
+                .nav-item:hover,
+                .nav-item.active {
+                    color: var(--accent-hazard);
+                    border-bottom-color: var(--accent-hazard);
+                }
+
+                .nav-item.active::before {
+                    content: ">";
+                    margin-right: 8px;
+                }
+
+                .tech-specs {
+                    margin-top: auto;
+                    border: 1px solid var(--border-dim);
+                    background: rgba(0, 0, 0, 0.3);
+                    padding: 16px;
+                    font-size: 12px;
+                }
+
+                .spec-row {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 8px;
+                    color: var(--text-muted);
+                }
+                .spec-val {
+                    color: var(--accent-phosphor);
+                }
+
+                /* Main Content Area */
+                .main-content {
+                    background: var(--bg-chassis);
+                    padding: 0;
+                    position: relative;
+                }
+
+                .content-header {
+                    padding: 48px;
+                    border-bottom: 1px solid var(--border-dim);
+                    background: var(--bg-obsidian);
+                }
+
+                .section-title {
+                    font-size: 14px;
+                    color: var(--accent-hazard);
+                    letter-spacing: 2px;
+                    margin-bottom: 16px;
+                    text-transform: uppercase;
+                }
+
+                /* Module Library (Cards) */
+                .catalog-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 1px; /* Borders via gap */
+                    background-color: var(--border-dim);
+                    border-bottom: 1px solid var(--border-dim);
+                }
+
+                .module-card {
+                    background-color: var(--bg-chassis);
+                    padding: 32px;
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+                    height: 100%;
+                    transition: background-color 0.2s;
+                    cursor: pointer;
+                }
+
+                .module-card:hover {
+                    background-color: #1f1f1f;
+                }
+
+                .module-card:hover .module-id {
+                    color: var(--accent-hazard);
+                }
+
+                .module-id {
+                    font-size: 12px;
+                    color: var(--text-muted);
+                    margin-bottom: 16px;
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .module-price {
+                    color: var(--text-primary);
+                    background: var(--border-dim);
+                    padding: 2px 8px;
+                }
+
+                .module-title {
+                    font-size: 24px;
+                    font-weight: 700;
+                    margin: 0 0 16px 0;
+                    text-transform: uppercase;
+                    letter-spacing: -0.5px;
+                }
+
+                .module-desc {
+                    font-size: 14px;
+                    line-height: 1.6;
+                    color: var(--text-muted);
+                    margin-bottom: 32px;
+                    flex-grow: 1;
+                }
+
+                .module-action {
+                    border-top: 1px solid var(--border-dim);
+                    padding-top: 16px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 12px;
+                    color: var(--accent-hazard);
+                    text-transform: uppercase;
+                }
+
+                /* Bespoke Section */
+                .bespoke-section {
+                    background-color: #080808;
+                    padding: 80px 48px;
+                    border-bottom: 1px solid var(--border-dim);
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 64px;
+                    align-items: center;
+                }
+
+                /* Service Table */
+                .table-container {
+                    padding: 80px 48px;
+                    background: var(--bg-chassis);
+                }
+
+                .phosphor-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-family: var(--font-mono);
+                    font-size: 14px;
+                    color: var(--accent-phosphor);
+                    border: 1px solid var(--accent-phosphor);
+                    box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+                }
+
+                .phosphor-table th,
+                .phosphor-table td {
+                    border: 1px solid #004411;
+                    padding: 16px;
+                    text-align: left;
+                }
+
+                .phosphor-table th {
+                    background: rgba(0, 255, 65, 0.1);
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+
+                .phosphor-table tr:hover td {
+                    background: rgba(0, 255, 65, 0.05);
+                }
+
+                /* Live Log */
+                .live-log {
+                    position: fixed;
+                    bottom: 0;
+                    left: 280px; /* Sidebar width */
+                    right: 0;
+                    background: #000;
+                    border-top: 1px solid var(--border-dim);
+                    padding: 8px 24px;
+                    font-family: var(--font-mono);
+                    font-size: 12px;
+                    color: var(--text-muted);
+                    display: flex;
+                    gap: 16px;
+                    z-index: 200;
+                    align-items: center;
+                }
+
+                .blinking-cursor {
+                    display: inline-block;
+                    width: 8px;
+                    height: 14px;
+                    background: var(--accent-phosphor);
+                    animation: blink 1s step-end infinite;
+                }
+
+                @keyframes blink {
+                    50% {
+                        opacity: 0;
+                    }
+                }
+
+                .status-dot {
+                    width: 8px;
+                    height: 8px;
+                    background: var(--accent-phosphor);
+                    border-radius: 50%;
+                    box-shadow: 0 0 8px var(--accent-phosphor);
+                }
+            </style>
+        
+        
+            <div class="scanlines"></div>
+
+            <div class="layout-grid">
+                <!-- Left Sidebar Console -->
+                <aside class="sidebar">
+                    <div class="sidebar-header">
+                        <div class="mono" style="
+                                font-weight: 700;
+                                display: flex;
+                                align-items: center;
+                                gap: 12px;
+                                color: var(--text-primary);
+                                letter-spacing: -0.5px;
+                            ">
+                            <div style="
+                                    width: 24px;
+                                    height: 24px;
+                                    background: var(--text-primary);
+                                    mask: url(&quot;https://api.iconify.design/lucide:box.svg&quot;)
+                                        no-repeat center / contain;
+                                    -webkit-mask: url(&quot;https://api.iconify.design/lucide:box.svg&quot;)
+                                        no-repeat center / contain;
+                                "></div>
+                            BASALT_SYS
+                        </div>
+                    </div>
+
+                    <nav class="col" style="gap: 8px">
+                        <div class="mono" style="
+                                font-size: 10px;
+                                color: var(--border-bright);
+                                margin-bottom: 8px;
+                            ">
+                            /// NAVIGATION_DECK
+                        </div>
+                        <a class="nav-item mono" data-media-type="banani-button">DASHBOARD</a>
+                        <a class="nav-item mono active" data-media-type="banani-button">CAPABILITIES</a>
+                        <a class="nav-item mono" data-media-type="banani-button">DEPLOYMENTS</a>
+                        <a class="nav-item mono" data-media-type="banani-button">INTELLIGENCE</a>
+                        <a class="nav-item mono" data-media-type="banani-button">SETTINGS</a>
+                    </nav>
+
+                    <div class="tech-specs mono">
+                        <div style="
+                                color: var(--accent-hazard);
+                                margin-bottom: 12px;
+                                border-bottom: 1px solid var(--border-dim);
+                                padding-bottom: 8px;
+                            ">
+                            [ SYSTEM_METRICS ]
+                        </div>
+                        <div class="spec-row">
+                            <span>UPTIME</span>
+                            <span class="spec-val">99.99%</span>
+                        </div>
+                        <div class="spec-row">
+                            <span>LATENCY</span>
+                            <span class="spec-val">24ms</span>
+                        </div>
+                        <div class="spec-row">
+                            <span>ACTIVE_UNITS</span>
+                            <span class="spec-val">842</span>
+                        </div>
+                        <div class="spec-row">
+                            <span>MEM_LOAD</span>
+                            <span class="spec-val">14%</span>
+                        </div>
+                        <div style="
+                                margin-top: 16px;
+                                font-size: 10px;
+                                color: #555;
+                            ">
+                            SERVER: US-WEST-2<br>
+                            ENCRYPTION: AES-256
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <!-- Header -->
+                    <header class="content-header">
+                        <div class="section-title mono">
+                            /// SYSTEM_MANIFEST
+                        </div>
+                        <h1 class="display-font" style="
+                                font-size: 48px;
+                                margin: 0;
+                                line-height: 1;
+                                color: var(--text-primary);
+                                text-transform: uppercase;
+                            ">
+                            Available<br>Architectures
+                        </h1>
+                    </header>
+
+                    <!-- Module Catalog -->
+                    <section>
+                        <div style="
+                                padding: 24px 48px;
+                                border-bottom: 1px solid var(--border-dim);
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                            ">
+                            <span class="mono" style="
+                                    color: var(--text-muted);
+                                    font-size: 12px;
+                                ">CATEGORY: TRIPWIRE_AUTOMATION</span>
+                            <span class="mono" style="
+                                    color: var(--accent-hazard);
+                                    font-size: 12px;
+                                ">3 UNITS READY</span>
+                        </div>
+
+                        <div class="catalog-grid">
+                            <!-- Card 1 -->
+                            <div class="module-card" data-media-type="banani-button">
+                                <div class="module-id mono">
+                                    <span>MODEL_B-1</span>
+                                    <span class="module-price">$199/MO</span>
+                                </div>
+                                <div style="
+                                        height: 160px;
+                                        margin-bottom: 24px;
+                                        background: #000;
+                                        border: 1px solid var(--border-dim);
+                                        overflow: hidden;
+                                    ">
+                                    <img data-aspect-ratio="4:3" data-query="schematic blueprint of a sales funnel mechanism, technical wireframe white on black" style="
+                                            width: 100%;
+                                            height: 100%;
+                                            object-fit: cover;
+                                            opacity: 0.8;
+                                            filter: grayscale(100%);
+                                        " src="https://storage.googleapis.com/banani-generated-images/generated-images/363ef51b-6f9b-408e-b188-add68f1c0db2.jpg">
+                                </div>
+                                <h3 class="module-title">
+                                    Lead<br>Autopilot
+                                </h3>
+                                <p class="module-desc">
+                                    Autonomous ingestion node. Captures leads
+                                    from forms, enriches data via Clearbit, and
+                                    qualifies intent before routing to CRM.
+                                </p>
+                                <div class="module-action mono">
+                                    <span>[ VIEW_SPECS ]</span>
+                                    <iconify-icon icon="lucide:plus" style="font-size: 16px"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block;margin:auto}</style></template></iconify-icon>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="module-card" data-media-type="banani-button">
+                                <div class="module-id mono">
+                                    <span>MODEL_C-4</span>
+                                    <span class="module-price">$249/MO</span>
+                                </div>
+                                <div style="
+                                        height: 160px;
+                                        margin-bottom: 24px;
+                                        background: #000;
+                                        border: 1px solid var(--border-dim);
+                                        overflow: hidden;
+                                    ">
+                                    <img data-aspect-ratio="4:3" data-query="schematic blueprint of network distribution nodes, technical wireframe white on black" style="
+                                            width: 100%;
+                                            height: 100%;
+                                            object-fit: cover;
+                                            opacity: 0.8;
+                                            filter: grayscale(100%);
+                                        " src="https://storage.googleapis.com/banani-generated-images/generated-images/89121008-4f20-4e2d-92d1-8b5c084c014a.jpg">
+                                </div>
+                                <h3 class="module-title">
+                                    Content<br>Reactor
+                                </h3>
+                                <p class="module-desc">
+                                    Multi-channel distribution logic. Takes one
+                                    input seed and propagates formatted assets
+                                    to LinkedIn, Twitter, and Newsletter APIs.
+                                </p>
+                                <div class="module-action mono">
+                                    <span>[ VIEW_SPECS ]</span>
+                                    <iconify-icon icon="lucide:plus" style="font-size: 16px"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block;margin:auto}</style></template></iconify-icon>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="module-card" data-media-type="banani-button">
+                                <div class="module-id mono">
+                                    <span>MODEL_S-9</span>
+                                    <span class="module-price">$149/MO</span>
+                                </div>
+                                <div style="
+                                        height: 160px;
+                                        margin-bottom: 24px;
+                                        background: #000;
+                                        border: 1px solid var(--border-dim);
+                                        overflow: hidden;
+                                    ">
+                                    <img data-aspect-ratio="4:3" data-query="schematic blueprint of radar scanning waves, technical wireframe white on black" style="
+                                            width: 100%;
+                                            height: 100%;
+                                            object-fit: cover;
+                                            opacity: 0.8;
+                                            filter: grayscale(100%);
+                                        " src="https://storage.googleapis.com/banani-generated-images/generated-images/eec840b1-b967-42f1-94c3-e8728831cb62.jpg">
+                                </div>
+                                <h3 class="module-title">
+                                    Sentiment<br>Sentry
+                                </h3>
+                                <p class="module-desc">
+                                    Passive listening post. Monitors social
+                                    frequencies for brand mentions and triggers
+                                    alert protocols on negative sentiment
+                                    spikes.
+                                </p>
+                                <div class="module-action mono">
+                                    <span>[ VIEW_SPECS ]</span>
+                                    <iconify-icon icon="lucide:plus" style="font-size: 16px"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block;margin:auto}</style></template></iconify-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Bespoke Architecture -->
+                    <section class="bespoke-section">
+                        <div>
+                            <div class="section-title mono" style="color: #fff">
+                                /// CUSTOM_PROTOCOL
+                            </div>
+                            <h2 class="display-font" style="
+                                    font-size: 40px;
+                                    margin: 0 0 24px 0;
+                                    color: #fff;
+                                ">
+                                Bespoke<br>Architecture
+                            </h2>
+                            <p style="
+                                    color: var(--text-muted);
+                                    font-size: 18px;
+                                    line-height: 1.6;
+                                    margin-bottom: 40px;
+                                    max-width: 480px;
+                                ">
+                                For enterprise-grade complexity. We design,
+                                build, and maintain custom neural networks
+                                tailored to your specific operational terrain.
+                            </p>
+                            <button class="mono" style="
+                                    background: var(--text-primary);
+                                    color: #000;
+                                    border: none;
+                                    padding: 16px 32px;
+                                    font-weight: 700;
+                                    cursor: pointer;
+                                    text-transform: uppercase;
+                                " data-media-type="banani-button">
+                                INITIATE_CONSULTATION
+                            </button>
+                        </div>
+                        <div style="
+                                position: relative;
+                                border: 1px solid var(--border-dim);
+                                padding: 4px;
+                            ">
+                            <div style="
+                                    position: absolute;
+                                    top: -10px;
+                                    left: 20px;
+                                    background: #080808;
+                                    padding: 0 8px;
+                                    font-size: 10px;
+                                    color: var(--text-muted);
+                                " class="mono">
+                                DIAGRAM_88A
+                            </div>
+                            <img data-aspect-ratio="16:9" data-query="complex technical flowchart diagram of enterprise ai architecture, white lines on dark background, high detail" style="
+                                    width: 100%;
+                                    display: block;
+                                    filter: grayscale(100%) invert(1);
+                                    opacity: 0.9;
+                                " src="https://storage.googleapis.com/banani-generated-images/generated-images/a827e22c-04d9-4e8c-af0f-56802e63e4f2.jpg">
+                        </div>
+                    </section>
+
+                    <!-- Service Tiers Table -->
+                    <section class="table-container">
+                        <div style="
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: end;
+                                margin-bottom: 32px;
+                            ">
+                            <h2 class="display-font" style="font-size: 32px; margin: 0">
+                                Service Tiers
+                            </h2>
+                            <div class="mono" style="
+                                    font-size: 12px;
+                                    color: var(--accent-phosphor);
+                                ">
+                                DATA_SOURCE: LIVE
+                            </div>
+                        </div>
+
+                        <table class="phosphor-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40%">
+                                        CAPABILITY_MATRIX
+                                    </th>
+                                    <th style="width: 30%">STANDARD</th>
+                                    <th style="width: 30%">ENTERPRISE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>API_THROUGHPUT</td>
+                                    <td>1,000 REQ/MIN</td>
+                                    <td>UNLIMITED</td>
+                                </tr>
+                                <tr>
+                                    <td>DEDICATED_MEMORY</td>
+                                    <td>SHARED_CLUSTER</td>
+                                    <td>ISOLATED_INSTANCE</td>
+                                </tr>
+                                <tr>
+                                    <td>RESPONSE_TIME</td>
+                                    <td>&lt; 400ms</td>
+                                    <td>&lt; 80ms</td>
+                                </tr>
+                                <tr>
+                                    <td>DATA_RETENTION</td>
+                                    <td>30 DAYS</td>
+                                    <td>PERMANENT_ARCHIVE</td>
+                                </tr>
+                                <tr>
+                                    <td>SUPPORT_LEVEL</td>
+                                    <td>TICKET_BASED</td>
+                                    <td>DEDICATED_ENGINEER</td>
+                                </tr>
+                                <tr>
+                                    <td>ENCRYPTION</td>
+                                    <td>AES-256</td>
+                                    <td>MIL-SPEC_HARDENED</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </main>
+            </div>
+
+            <!-- Live Log Footer -->
+            <div class="live-log">
+                <div class="status-dot"></div>
+                <span>SYSTEM_LOG:</span>
+                <span style="color: var(--accent-phosphor)">DEPLOYING_UNIT_B1... SUCCESS</span>
+                <span style="color: #444">|</span>
+                <span style="color: var(--text-muted)">MONITORING_NODES: 42</span>
+                <span class="blinking-cursor"></span>
+            </div>
+        
+    
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style>
+        :root {
+            --background: #050505;
+            --foreground: #e6e6e6;
+            --border: #00000014;
+            --input: #111111;
+            --primary: #ff6a00;
+            --primary-foreground: #050505;
+            --secondary: #2a2a2a;
+            --secondary-foreground: #dadada;
+            --muted: #0f0f0f;
+            --muted-foreground: #8a8a8a;
+            --success: #1b8f4a;
+            --success-foreground: #eaf8ee;
+            --accent: #00ff9c;
+            --accent-foreground: #050505;
+            --destructive: #d64545;
+            --destructive-foreground: #ffffff;
+            --warning: #ffb84d;
+            --warning-foreground: #050505;
+            --card: #0c0c0c;
+            --card-foreground: #e6e6e6;
+            --sidebar: #131313;
+            --sidebar-foreground: #cfcfcf;
+            --sidebar-primary: #1f1f1f;
+            --sidebar-primary-foreground: #ff6a00;
+            --radius-sm: 4px;
+            --radius-md: 6px;
+            --radius-lg: 8px;
+            --radius-xl: 12px;
+            --font-family-body: Inter;
+        }
+    </style>
+</div>
+</body></html>

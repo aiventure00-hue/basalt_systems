@@ -1,104 +1,58 @@
+import type { Metadata } from "next";
+import ContentHeader from "@/components/ContentHeader";
+import ModuleCatalog from "@/components/ModuleCatalog";
+import BespokeSection from "@/components/BespokeSection";
+import ServiceTable from "@/components/ServiceTable";
+import LiveLog from "@/components/LiveLog";
+
+export const metadata: Metadata = {
+    title: "Services | BASALT SYSTEMS"
+}
+
 const ServicesPage = () => {
-  return (
-    <div className="page-content">
-      <section className="services-section">
-        <div className="services-header">
-          <h1>What We Do</h1>
-          <p>Clear solutions for specific problems. No ambiguity.</p>
+    const modulesData = [
+        {
+            id: "MODEL_B-1",
+            price: "$199/MO",
+            title: "Lead<br>Autopilot",
+            description: "Autonomous ingestion node. Captures leads from forms, enriches data via Clearbit, and qualifies intent before routing to CRM.",
+            imageUrl: "https://storage.googleapis.com/banani-generated-images/generated-images/363ef51b-6f9b-408e-b188-add68f1c0db2.jpg",
+            imageAlt: "Schematic blueprint of a sales funnel mechanism"
+        },
+        {
+            id: "MODEL_C-4",
+            price: "$249/MO",
+            title: "Content<br>Reactor",
+            description: "Multi-channel distribution logic. Takes one input seed and propagates formatted assets to LinkedIn, Twitter, and Newsletter APIs.",
+            imageUrl: "https://storage.googleapis.com/banani-generated-images/generated-images/89121008-4f20-4e2d-92d1-8b5c084c014a.jpg",
+            imageAlt: "Schematic blueprint of network distribution nodes"
+        },
+        {
+            id: "MODEL_S-9",
+            price: "$149/MO",
+            title: "Sentiment<br>Sentry",
+            description: "Passive listening post. Monitors social frequencies for brand mentions and triggers alert protocols on negative sentiment spikes.",
+            imageUrl: "https://storage.googleapis.com/banani-generated-images/generated-images/eec840b1-b967-42f1-94c3-e8728831cb62.jpg",
+            imageAlt: "Schematic blueprint of radar scanning waves"
+        }
+    ]
+
+    return (
+        <div>
+            <ContentHeader 
+                sectionTitle="/// SYSTEM_MANIFEST"
+                title="Available<br/>Architectures"
+            />
+            <ModuleCatalog 
+                category="CATEGORY: TRIPWIRE_AUTOMATION"
+                unitsCount="3 UNITS READY"
+                modules={modulesData}
+            />
+            <BespokeSection />
+            <ServiceTable />
+            <LiveLog />
         </div>
-        
-        <div className="services-grid">
-          <div className="service-card">
-            <h3>AI Automations</h3>
-            <p className="service-subtitle">n8n / Make / custom pipelines</p>
-            
-            <div className="service-details">
-              <div className="problem">
-                <h4>Problem it solves</h4>
-                <p>Repetitive manual tasks that eat up your team's time and create errors.</p>
-              </div>
-              
-              <div className="audience">
-                <h4>Who it's for</h4>
-                <p>Small teams drowning in copy-paste work, data entry, and manual reporting.</p>
-              </div>
-              
-              <div className="exclusions">
-                <h4>What isn't included</h4>
-                <p>Complex enterprise integrations, ML model training, or systems requiring dedicated DevOps teams.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="service-card">
-            <h3>Custom AI Interfaces</h3>
-            <p className="service-subtitle">Simple UIs for non-technical users</p>
-            
-            <div className="service-details">
-              <div className="problem">
-                <h4>Problem it solves</h4>
-                <p>Powerful AI tools that your team can't use because they're too technical or complex.</p>
-              </div>
-              
-              <div className="audience">
-                <h4>Who it's for</h4>
-                <p>Businesses with AI capabilities that need their non-technical staff to actually use them.</p>
-              </div>
-              
-              <div className="exclusions">
-                <h4>What isn't included</h4>
-                <p>Building the underlying AI models, enterprise-grade security systems, or mobile apps.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="service-card">
-            <h3>Internal Tools & Dashboards</h3>
-            <p className="service-subtitle">Build what you actually need</p>
-            
-            <div className="service-details">
-              <div className="problem">
-                <h4>Problem it solves</h4>
-                <p>Off-the-shelf tools that don't quite fit your workflow, forcing workarounds and inefficiency.</p>
-              </div>
-              
-              <div className="audience">
-                <h4>Who it's for</h4>
-                <p>Companies with unique processes that waste hours daily working around generic software limitations.</p>
-              </div>
-              
-              <div className="exclusions">
-                <h4>What isn't included</h4>
-                <p>Full-scale ERP systems, customer-facing products, or anything requiring extensive user testing.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="service-card">
-            <h3>Consulting & Prototyping</h3>
-            <p className="service-subtitle">We test before you commit</p>
-            
-            <div className="service-details">
-              <div className="problem">
-                <h4>Problem it solves</h4>
-                <p>Uncertainty about whether a technical solution will actually work before investing thousands.</p>
-              </div>
-              
-              <div className="audience">
-                <h4>Who it's for</h4>
-                <p>Decision makers who need proof of concept before budgeting larger projects.</p>
-              </div>
-              
-              <div className="exclusions">
-                <h4>What isn't included</h4>
-                <p>Full project management, team training, or long-term strategic planning.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  )
+    )
 }
 
 export default ServicesPage

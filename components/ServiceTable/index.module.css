@@ -1,0 +1,51 @@
+.tableContainer {
+    padding: 80px 48px;
+    background: var(--bg-chassis);
+}
+
+.tableHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 32px;
+}
+
+.displayFont {
+    font-family: var(--font-display);
+    font-size: 32px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.dataSource {
+    font-size: 12px;
+    color: var(--accent-phosphor);
+    font-family: var(--font-mono);
+}
+
+.phosphorTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--accent-phosphor);
+    border: 1px solid var(--accent-phosphor);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+.phosphorTable th,
+.phosphorTable td {
+    border: 1px solid #004411;
+    padding: 16px;
+    text-align: left;
+}
+
+.phosphorTable th {
+    background: rgba(0, 255, 65, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.phosphorTable tr:hover td {
+    background: rgba(0, 255, 65, 0.05);
+}
