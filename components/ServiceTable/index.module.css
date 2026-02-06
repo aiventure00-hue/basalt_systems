@@ -3,6 +3,18 @@
     background: var(--bg-chassis);
 }
 
+@media (max-width: 768px) {
+    .tableContainer {
+        padding: 48px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tableContainer {
+        padding: 32px 16px;
+    }
+}
+
 .tableHeader {
     display: flex;
     justify-content: space-between;
@@ -10,11 +22,31 @@
     margin-bottom: 32px;
 }
 
+@media (max-width: 768px) {
+    .tableHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
+
 .displayFont {
     font-family: var(--font-display);
     font-size: 32px;
     margin: 0;
     font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .displayFont {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .displayFont {
+        font-size: 20px;
+    }
 }
 
 .dataSource {
@@ -31,6 +63,25 @@
     color: var(--accent-phosphor);
     border: 1px solid var(--accent-phosphor);
     box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    .phosphorTable {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .phosphorTable {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 400px) {
+    .phosphorTable {
+        font-size: 10px;
+    }
 }
 
 .phosphorTable th,
@@ -40,10 +91,37 @@
     text-align: left;
 }
 
+@media (max-width: 768px) {
+    .phosphorTable th,
+    .phosphorTable td {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .phosphorTable th,
+    .phosphorTable td {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .phosphorTable th,
+    .phosphorTable td {
+        padding: 6px;
+    }
+}
+
 .phosphorTable th {
     background: rgba(0, 255, 65, 0.1);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+    .phosphorTable th {
+        letter-spacing: 0.5px;
+    }
 }
 
 .phosphorTable tr:hover td {

@@ -10,12 +10,34 @@
     color: var(--foreground, #e6e6e6);
 }
 
+@media (max-width: 768px) {
+    .liveLog {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .liveLog {
+        padding: 4px 8px;
+        font-size: 10px;
+        gap: 6px;
+    }
+}
+
 .statusDot {
     width: 8px;
     height: 8px;
     background: var(--primary, #ff6a00);
     border-radius: 50%;
     animation: pulse 2s infinite;
+}
+
+@media (max-width: 480px) {
+    .statusDot {
+        width: 6px;
+        height: 6px;
+    }
 }
 
 .success {
@@ -35,6 +57,13 @@
     height: 14px;
     background: var(--foreground, #e6e6e6);
     animation: blink 1s infinite;
+}
+
+@media (max-width: 480px) {
+    .blinkingCursor {
+        width: 6px;
+        height: 12px;
+    }
 }
 
 @keyframes pulse {
