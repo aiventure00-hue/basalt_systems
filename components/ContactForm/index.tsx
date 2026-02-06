@@ -1,6 +1,9 @@
 'use client'
 
 import { useState } from 'react';
+import Button from '@/components/shared/Button';
+import Input from '@/components/shared/Input';
+import Textarea from '@/components/shared/Textarea';
 import styles from './index.module.css';
 
 const ContactForm = () => {
@@ -32,46 +35,43 @@ const ContactForm = () => {
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
             <label className={`${styles.label} mono`}>IDENTIFIER</label>
-            <input
+            <Input
               type="text"
               name="name"
               placeholder="Enter designation"
               value={formData.name}
               onChange={handleChange}
               required
-              className={styles.input}
             />
           </div>
           
           <div className={styles.formGroup}>
             <label className={`${styles.label} mono`}>COMMUNICATION_CHANNEL</label>
-            <input
+            <Input
               type="email"
               name="email"
               placeholder="secure.channel@domain"
               value={formData.email}
               onChange={handleChange}
               required
-              className={styles.input}
             />
           </div>
           
           <div className={styles.formGroup}>
             <label className={`${styles.label} mono`}>PROTOCOL_DESCRIPTION</label>
-            <textarea
+            <Textarea
               name="problem"
               placeholder="Describe the system requirements..."
               value={formData.problem}
               onChange={handleChange}
               required
               rows={4}
-              className={styles.textarea}
             />
           </div>
           
-          <button type="submit" className={`${styles.submitButton} mono`}>
+          <Button variant="primary" type="submit">
             TRANSMIT_REQUEST
-          </button>
+          </Button>
         </form>
       </div>
       

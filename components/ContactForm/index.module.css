@@ -60,60 +60,6 @@
     text-transform: uppercase;
 }
 
-.input,
-.textarea {
-    background: var(--bg-panel);
-    border: 1px solid var(--border-dim);
-    color: var(--text-primary);
-    padding: 16px;
-    font-family: var(--font-mono);
-    font-size: 14px;
-    transition: all 0.2s;
-    border-radius: 4px;
-}
-
-.input:focus,
-.textarea:focus {
-    outline: none;
-    border-color: var(--accent-steel);
-    background: var(--bg-obsidian);
-}
-
-.input::placeholder,
-.textarea::placeholder {
-    color: var(--text-muted);
-    opacity: 0.6;
-}
-
-.textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.submitButton {
-    background: var(--accent-hazard);
-    color: var(--text-primary);
-    border: none;
-    padding: 16px 24px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s;
-    border-radius: 4px;
-    margin-top: 16px;
-}
-
-.submitButton:hover {
-    background: #ff7733;
-    transform: translateY(-1px);
-}
-
-.submitButton:active {
-    transform: translateY(0);
-}
-
 .specifications {
     background: var(--bg-obsidian);
     padding: 48px;
