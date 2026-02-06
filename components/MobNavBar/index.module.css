@@ -101,40 +101,43 @@
 .mobileNavLinks {
     display: flex;
     flex-direction: column;
-    padding: 80px 24px 24px;
-    gap: 16px;
+    padding: 80px 24px;
+    gap: 8px;
 }
 
 @media (max-width: 480px) {
     .mobileNavLinks {
-        padding: 60px 16px 16px;
-        gap: 12px;
+        padding: 60px 16px;
+        gap: 6px;
     }
 }
 
 .mobileNavLink {
-    display: block;
-    padding: 16px 20px;
-    background: var(--bg-chassis);
-    border: 1px solid var(--border-dim);
-    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    color: var(--text-muted);
     text-decoration: none;
-    font-family: var(--font-mono);
     font-size: 14px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: all 0.2s ease;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s;
+    cursor: pointer;
+    font-family: var(--font-mono);
 }
 
-.mobileNavLink:hover {
-    background: var(--bg-panel);
-    border-color: var(--accent-steel);
-    color: var(--accent-steel);
+.mobileNavLink.active {
+    color: var(--accent-hazard);
+    border-bottom-color: var(--accent-hazard);
+}
+
+.mobileNavLink.active::before {
+    content: ">";
+    margin-right: 8px;
 }
 
 @media (max-width: 480px) {
     .mobileNavLink {
-        padding: 12px 16px;
         font-size: 12px;
+        padding: 10px 0;
     }
 }

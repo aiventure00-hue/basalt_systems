@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import styles from './index.module.css';
+import { usePathname } from 'next/navigation';
 import { mainNavLinks } from '@/data/navigation';
+import styles from './index.module.css';
 
 const MobNavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -46,7 +48,7 @@ const MobNavBar = () => {
                         <Link 
                             key={link.href} 
                             href={link.href} 
-                            className={styles.mobileNavLink}
+                            className={`${styles.mobileNavLink} ${pathname === link.href ? styles.active : ''}`}
                             onClick={closeMobileMenu}
                         >
                             {link.label.toUpperCase()}
