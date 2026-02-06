@@ -3,3 +3,10 @@
     grid-template-columns: 280px 1fr;
     min-height: 100vh;
 }
+
+@media (max-width: 968px) {
+    .layoutGrid {
+        display: block;
+        min-height: auto;
+    }
+}

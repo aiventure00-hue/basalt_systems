@@ -10,6 +10,12 @@
     z-index: 100;
 }
 
+@media (max-width: 968px) {
+    .sidebar {
+        display: none;
+    }
+}
+
 .sidebarHeader {
     margin-bottom: 48px;
     padding-bottom: 24px;
@@ -96,67 +102,6 @@
 }
 
 .techSpecs > div:last-child {
-    margin-top: 16px;
-    font-size: 10px;
-    color: #555;
-}
-
-.tech-specs {
-}
-
-.spec-row {
-}
-
-.spec-val {
-}
-
-.sidebar-header .mono {
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--text-primary);
-    letter-spacing: -0.5px;
-}
-
-.sidebar-header .mono > div {
-    width: 24px;
-    height: 24px;
-    background: var(--text-primary);
-    mask: url("https://api.iconify.design/lucide:box.svg") no-repeat center / contain;
-    -webkit-mask: url("https://api.iconify.design/lucide:box.svg") no-repeat center / contain;
-}
-
-.col {
-    gap: 8px;
-}
-
-.col .mono {
-    font-size: 10px;
-    color: var(--border-bright);
-    margin-bottom: 8px;
-}
-
-.nav-item {
-}
-
-.tech-specs {
-}
-
-.tech-specs > div:first-child {
-    color: var(--accent-hazard);
-    margin-bottom: 12px;
-    border-bottom: 1px solid var(--border-dim);
-    padding-bottom: 8px;
-}
-
-.spec-row {
-}
-
-.spec-val {
-}
-
-.tech-specs > div:last-child {
     margin-top: 16px;
     font-size: 10px;
     color: #555;
