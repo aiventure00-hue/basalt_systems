@@ -43,6 +43,18 @@ const MobNavBar = () => {
             </div>
             
             <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
+                <div className={styles.mobileNavHeader}>
+                    <div className={styles.mobileNavTitle}>
+                        /// NAVIGATION_DECK
+                    </div>
+                    <button 
+                        className={styles.closeButton}
+                        onClick={closeMobileMenu}
+                        aria-label="Close mobile menu"
+                    >
+                        ×
+                    </button>
+                </div>
                 <div className={styles.mobileNavLinks}>
                     {mainNavLinks.map((link) => (
                         <Link 
