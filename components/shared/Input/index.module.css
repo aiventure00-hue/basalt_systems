@@ -6,7 +6,6 @@
     font-family: var(--font-mono);
     font-size: 14px;
     transition: all 0.2s;
-    border-radius: 4px;
 }
 
 .input:focus {
